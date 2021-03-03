@@ -67,3 +67,7 @@ body{
     font-size: xx-large;
 }
 
+#conteoJuego p{
+    font-size: 100px;
+    color: rgb(132, 22, 165);
+}
