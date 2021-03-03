@@ -88,6 +88,7 @@ function empezar() {
     ocultar("finJuego");
     ocultar("ask");
     ocultar("opRes");
+    ocultar("reiniciarJuego");
     ocultar("comenzarJuego");
     mostrar("conteoJuego");
     conteo();
@@ -108,6 +109,7 @@ function jugando() {
         ocultar("finJuego");
         ocultar("comenzarJuego");
         ocultar("conteoJuego");
+        ocultar("reiniciarJuego");
         /*mostrar("ask");
         mostrar("opRes");*/
 
@@ -125,6 +127,7 @@ function jugando() {
             tiempoSancion = 0;
             mostrar("ask");
             mostrar("opRes");
+            ocultar("reiniciarJuego");
             generarPregResp(numPreg);
             console.log("estado" + estado);
         }
@@ -197,14 +200,24 @@ function generarPregResp(num) {
     console.log(resCorrect);
 
 }
+function finalJuego(){
+    mostrar("finJuego");
+    mostrar("reiniciarJuego");
+    ocultar("ask");
+    ocultar("opRes");
+    //location.reload();
+}
+
 
 var blocks = document.getElementsByTagName('th');
 
     function pintarQuestion() {
         c++;
         if (c >= preguntas.length) {
-            estado = 3;
-
+            finalJuego();
+            document.getElementById("reiniciarJuego").addEventListener("click", function (){
+                location.reload();
+            });
         } else {
 
             blocks[c].style.backgroundColor = "rgb(151, 224, 200)";
