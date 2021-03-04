@@ -212,14 +212,6 @@ function numPos(num) {
         fila.appendChild(listPreguntas);
         list.appendChild(fila);
     }
-    console.log("Respuestas Aleatorias");
-    console.log(respuestas);
-    console.log("Posiciones");
-    console.log(posRespuestas);
-    console.log("Preguntas");
-    console.log(preguntas);
-    console.log("Respuestas Correctas");
-    console.log(resCorrect);
 }
 
 var blocks = document.getElementsByTagName('th');//Obtenemos las filas de la tabla
@@ -269,7 +261,6 @@ document.getElementById("incorrecto").addEventListener("click", function (e) {
     despintarQuestion();
     var recPos = posRespuestas[countRes];
     if (recPos % 2 == 0) {
-        console.log("Incorrect-btnIn");
         numError++;
     } else {
     }
@@ -282,14 +273,11 @@ document.getElementById("correcto").addEventListener("click", function (e) {
     despintarQuestion();
     var recoPos = posRespuestas[countRes];
     if (recoPos % 2 == 0) {
-        console.log("Correct-btnCor");
 
     } else {
-        console.log("incorrect-btnCor");
         numError++;
     }
     countRes++;
-    console.log(numError);
 });
 
 function finalJuego() {
@@ -298,7 +286,6 @@ function finalJuego() {
     ocultar("ask");
     ocultar("opRes");
     tiempoSancion = 0.5 * numError;
-    console.log(numError);
     tiempoTotal = tiempoJuego + tiempoSancion;
     document.getElementById("tTotal").innerHTML = tiempoTotal + "s";
     document.getElementById("tBase").innerHTML = tiempoJuego + "s";
